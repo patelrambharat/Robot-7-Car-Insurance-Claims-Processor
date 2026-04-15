@@ -1,0 +1,383 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ucas="clr-namespace:UiPath.Core.Activities.Storage;assembly=UiPath.System.Activities" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugage="clr-namespace:UiPath.GSuite.Activities.Gmail.Enums;assembly=UiPath.GSuite.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upaf="clr-namespace:UiPath.Persistence.Activities.FormTask;assembly=UiPath.Persistence.Activities" xmlns:upat="clr-namespace:UiPath.Persistence.Activities.Tasks;assembly=UiPath.Persistence.Activities" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_EmailAddress" Type="InArgument(x:String)" />
+    <x:Property Name="in_LastName" Type="InArgument(x:String)" />
+    <x:Property Name="in_FirstName" Type="InArgument(x:String)" />
+    <x:Property Name="in_FileExtension" Type="InArgument(x:String)" />
+    <x:Property Name="in_FileName" Type="InArgument(x:String)" />
+    <x:Property Name="in_PolicyNumber" Type="InArgument(x:Decimal)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Core.Activities.Storage</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>UiPath.Orchestrator.Client.Models</x:String>
+      <x:String>UiPath.Web.Activities.Http.Models</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Net</x:String>
+      <x:String>UiPath.Web.Activities.Http</x:String>
+      <x:String>UiPath.Sdk.Activities</x:String>
+      <x:String>UiPath.Sdk.Activities.DependencyInjection.Contracts</x:String>
+      <x:String>UiPath.Sdk.Activities.DependencyInjection</x:String>
+      <x:String>UiPath.GSuite.Activities.Gmail.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.GSuite.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.Persistence.Activities.Model.Task</x:String>
+      <x:String>UiPath.Persistence.Activities.FormTask</x:String>
+      <x:String>UiPath.Persistence.Activities.BaseTask</x:String>
+      <x:String>UiPath.Persistence.Activities</x:String>
+      <x:String>UiPath.Persistence.Activities.Tasks</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.MetadataLoadContext</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>UiPath.OrchestratorClient</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Net.Primitives</AssemblyReference>
+      <AssemblyReference>System.Net.HttpListener</AssemblyReference>
+      <AssemblyReference>System.Net.WebProxy</AssemblyReference>
+      <AssemblyReference>System.Net.NameResolution</AssemblyReference>
+      <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
+      <AssemblyReference>System.Net.WebClient</AssemblyReference>
+      <AssemblyReference>System.Net.Requests</AssemblyReference>
+      <AssemblyReference>System.Net.ServicePoint</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1201.3333333333333,4336" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_InsurancePolicies" />
+      <Variable x:TypeArguments="x:Boolean" Name="IsValidPolicyNumber" />
+      <Variable x:TypeArguments="x:Boolean" Name="IsValidStatus" />
+      <Variable x:TypeArguments="upaf:FormTaskData" Name="MyTaskObject" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ReadRange WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_InsurancePolicies]" DisplayName="Read Member Details" sap:VirtualizedContainerService.HintSize="560,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Members" WorkbookPath="InsurancePolicies.xlsx">
+      <ui:ReadRange.Range>
+        <InArgument x:TypeArguments="x:String">
+          <Literal x:TypeArguments="x:String" Value="" />
+        </InArgument>
+      </ui:ReadRange.Range>
+    </ui:ReadRange>
+    <Assign DisplayName="Assign IsValidPolicyNumber" sap:VirtualizedContainerService.HintSize="560,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Boolean">[IsValidPolicyNumber]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Boolean" xml:space="preserve">[dt_InsurancePolicies.AsEnumerable().Any(Function(row) _
+    Not IsDBNull(row("Policy Number")) AndAlso _
+    Not String.IsNullOrWhiteSpace(row("Policy Number").ToString()) AndAlso _
+    CDec(row("Policy Number")) = in_PolicyNumber)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If sap2010:Annotation.AnnotationText="Ensure's that the policy number is in the members table" Condition="[IsValidPolicyNumber=True]" DisplayName="If Policy Is Valid" sap:VirtualizedContainerService.HintSize="560,4016.6666666666665" sap2010:WorkflowViewState.IdRef="If_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="558,3760.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Assign IsValidStatus" sap:VirtualizedContainerService.HintSize="524,180.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_8">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Boolean">[IsValidStatus]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Boolean" xml:space="preserve">[dt_InsurancePolicies.AsEnumerable().Any(Function(row) _
+    Not IsDBNull(row("Policy Number")) AndAlso _
+    Not String.IsNullOrWhiteSpace(row("Policy Number").ToString()) AndAlso _
+    Decimal.TryParse(row("Policy Number").ToString(), Nothing) AndAlso _
+    CDec(row("Policy Number")) = in_PolicyNumber AndAlso _
+    Not IsDBNull(row("Membership Status")) AndAlso _
+    CBool(row("Membership Status")))]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <If sap2010:Annotation.AnnotationText="Ensure's the membership status is True (i.e. payments are up to date)" Condition="[IsValidStatus=True]" DisplayName="If Status is Valid" sap:VirtualizedContainerService.HintSize="524,3516" sap2010:WorkflowViewState.IdRef="If_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="522,3256" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:String" Name="Reason" />
+                  <Variable x:TypeArguments="x:Int32" Name="Confidence" />
+                  <Variable x:TypeArguments="x:Boolean" Name="IsAIGenerated" />
+                  <Variable x:TypeArguments="x:String" Name="FullFilePathOfPhotograph" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Assign FullFilePathOfPhotograph" sap:VirtualizedContainerService.HintSize="488,180.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_9">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[FullFilePathOfPhotograph]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"\UiPath Project Portfolio\Robot 7 Car Insurance Claims Processing\Downloaded Photographs\"+in_FileName]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ucas:DownloadStorageFile TimeoutMS="{x:Null}" Destination="[FullFilePathOfPhotograph]" DisplayName="Download Photograph" FolderPath="Operations" sap:VirtualizedContainerService.HintSize="488,172.66666666666666" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_2" Path="[in_FileName]" StorageBucketName="VehicleDamagePhotos" />
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GeminiAPICall - Invoke Workflow File (GeminiAPICall.xaml)" sap:VirtualizedContainerService.HintSize="488,186.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="GeminiAPICall.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <OutArgument x:TypeArguments="x:String" x:Key="out_Reason">[Reason]</OutArgument>
+                    <OutArgument x:TypeArguments="x:Int32" x:Key="out_Confidence">[Confidence]</OutArgument>
+                    <OutArgument x:TypeArguments="x:Boolean" x:Key="out_IsAIGenerated">[IsAIGenerated]</OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_FullFilePath">[FullFilePathOfPhotograph]</InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+                <ui:LogMessage DisplayName="Log AI Response" sap:VirtualizedContainerService.HintSize="488,180.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[IsAIGenerated.ToString+Environment.NewLine+Confidence.ToString+Environment.NewLine+Reason]" />
+                <If Condition="[IsAIGenerated=True]" DisplayName="If Photo is AI Generated" sap:VirtualizedContainerService.HintSize="488,2471.3333333333335" sap2010:WorkflowViewState.IdRef="If_4">
+                  <If.Then>
+                    <Sequence DisplayName="Then, send rejection email" sap:VirtualizedContainerService.HintSize="486,477.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:String" Name="RejectionEmail" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign DisplayName="Assign RejectionEmail" sap:VirtualizedContainerService.HintSize="452,180.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_11">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[RejectionEmail]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">["Hi "+in_FirstName.Substring(0, 1).ToString+" "+in_FirstName+"&lt;br&gt;&lt;br&gt;"+"Your claim wa rejected because you uploaded a falsified image of vehicle damage."+"&lt;br&gt;&lt;br&gt;"+"Regards,"+"&lt;br&gt;"+"Your car insurer"]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:LogMessage DisplayName="Log Rejection Email" sap:VirtualizedContainerService.HintSize="452,180.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Rejection Email: &quot;+RejectionEmail]" />
+                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="452,52" sap2010:WorkflowViewState.IdRef="CommentOut_12">
+                        <ui:CommentOut.Body>
+                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,532.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uga:SendEmailConnections ArgumentAttachmentPaths="{x:Null}" ArgumentAttachments="{x:Null}" ConnectionAccountName="{x:Null}" AttachmentInputMode="UseExisting" AttachmentPaths="{x:Null}" AuthScopesInvalid="False" Bcc="{x:Null}" Body="[RejectionEmail]" Cc="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="416,472.6666666666667" sap2010:WorkflowViewState.IdRef="SendEmailConnections_1" Importance="Normal" InputType="HTML" ReplyTo="{x:Null}" SaveAsDraft="True" SingleAttachment="{x:Null}" Subject="[&quot;Your claim was rejected -&quot;+in_PolicyNumber.ToString]" TextBody="{x:Null}" To="[{in_EmailAddress.ToString}]" UseConnectionService="True">
+                              <uga:SendEmailConnections.Attachments>
+                                <InArgument x:TypeArguments="scg:IEnumerable(upr:IResource)" />
+                              </uga:SendEmailConnections.Attachments>
+                              <uga:SendEmailConnections.AttachmentsBackup>
+                                <usau:BackupSlot x:TypeArguments="ugage:AttachmentInputMode" StoredValue="UseExisting">
+                                  <usau:BackupSlot.BackupValues>
+                                    <scg:Dictionary x:TypeArguments="ugage:AttachmentInputMode, scg:List(x:Object)" />
+                                  </usau:BackupSlot.BackupValues>
+                                </usau:BackupSlot>
+                              </uga:SendEmailConnections.AttachmentsBackup>
+                              <uga:SendEmailConnections.InputTypeBackup>
+                                <usau:BackupSlot x:TypeArguments="ugage:BodyInputType" StoredValue="HTML">
+                                  <usau:BackupSlot.BackupValues>
+                                    <scg:Dictionary x:TypeArguments="ugage:BodyInputType, scg:List(x:Object)" />
+                                  </usau:BackupSlot.BackupValues>
+                                </usau:BackupSlot>
+                              </uga:SendEmailConnections.InputTypeBackup>
+                            </uga:SendEmailConnections>
+                          </Sequence>
+                        </ui:CommentOut.Body>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:CommentOut>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="Else, value the damage" sap:VirtualizedContainerService.HintSize="486,1859.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:Decimal" Name="PayoutAmount" />
+                        <Variable x:TypeArguments="x:String" Name="TaskAction" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <upaf:CreateFormTask BulkFormLayout="{x:Null}" DynamicFormPath="{x:Null}" ExternalTag="{x:Null}" Labels="{x:Null}" TimeoutMs="{x:Null}" BucketFolderPath="Operations" BucketName="VehicleDamagePhotos" BulkFormLayoutGuid="1b4ac553-b56b-4efc-866a-d6299d96c649" DisplayName="Create Form Task" EnableBulkEdit="False" EnableDynamicForms="False" EnableV2="False" FolderPath="Operations" FormLayout="%[{&quot;label&quot;:&quot;Policy Number&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;in_FormPolicyNumber&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true,&quot;defaultValue&quot;:&quot;in_FormPolicyNumber&quot;},{&quot;label&quot;:&quot;First Name&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;in_FormFirstName&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true,&quot;defaultValue&quot;:&quot;in_FormFirstName&quot;},{&quot;label&quot;:&quot;Last Name&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;in_FormLastName&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true,&quot;defaultValue&quot;:&quot;in_FormLastName&quot;},{&quot;label&quot;:&quot;Email Address&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;in_FormEmailAddress&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true,&quot;defaultValue&quot;:&quot;in_FormEmailAddress&quot;},{&quot;label&quot;:&quot;Is AI Generated?&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;in_FormIsAIGenerated&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true,&quot;defaultValue&quot;:&quot;in_FormIsAIGenerated&quot;},{&quot;label&quot;:&quot;Confidence&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;in_FormConfidence&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true,&quot;defaultValue&quot;:&quot;in_FormConfidence&quot;},{&quot;label&quot;:&quot;Reason&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;in_FormReason&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true,&quot;defaultValue&quot;:&quot;in_FormReason&quot;},{&quot;label&quot;:&quot;HTML&quot;,&quot;tag&quot;:&quot;div&quot;,&quot;attrs&quot;:[{&quot;attr&quot;:&quot;&quot;,&quot;value&quot;:&quot;&quot;}],&quot;content&quot;:&quot;&lt;img src=\&quot;{{data.in_FormFileName_storage}}\&quot;/&gt;&quot;,&quot;refreshOnChange&quot;:false,&quot;key&quot;:&quot;in_FormFileName_storage&quot;,&quot;type&quot;:&quot;htmlelement&quot;,&quot;input&quot;:false,&quot;tableView&quot;:false},{&quot;label&quot;:&quot;Payout Amount&quot;,&quot;tableView&quot;:true,&quot;validate&quot;:{&quot;pattern&quot;:&quot;^[0-9]+$&quot;},&quot;key&quot;:&quot;out_FormPayoutAmount&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true},{&quot;mask&quot;:false,&quot;customClass&quot;:&quot;uipath-button-container&quot;,&quot;tableView&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;type&quot;:&quot;table&quot;,&quot;input&quot;:false,&quot;key&quot;:&quot;key&quot;,&quot;label&quot;:&quot;label&quot;,&quot;rows&quot;:[[{&quot;components&quot;:[{&quot;label&quot;:&quot;Approve&quot;,&quot;theme&quot;:&quot;success&quot;,&quot;disableOnInvalid&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;approve&quot;,&quot;custom&quot;:&quot;instance.emit('executeDoBlock', instance.component);&quot;,&quot;type&quot;:&quot;button&quot;,&quot;input&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;isResetData&quot;:false}]},{&quot;components&quot;:[{&quot;label&quot;:&quot;Reject&quot;,&quot;theme&quot;:&quot;danger&quot;,&quot;tableView&quot;:false,&quot;key&quot;:&quot;reject&quot;,&quot;custom&quot;:&quot;instance.emit('executeDoBlock', instance.component);&quot;,&quot;input&quot;:true,&quot;type&quot;:&quot;button&quot;,&quot;isResetData&quot;:false}]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]}]],&quot;numRows&quot;:1,&quot;numCols&quot;:6,&quot;reorder&quot;:false}]" FormLayoutGuid="581cd8c7-fd69-4d52-99c5-321c77e41575" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="452,378.6666666666667" sap2010:WorkflowViewState.IdRef="CreateFormTask_1" TaskCatalog="Damage Valuation" TaskOutput="[MyTaskObject]" TaskPriority="Medium" TaskTitle="Value Damage by Human Assessor">
+                        <upaf:CreateFormTask.FormData>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_FormPolicyNumber">[in_PolicyNumber.ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_FormFirstName">[in_FirstName]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_FormLastName">[in_LastName]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_FormEmailAddress">[in_EmailAddress]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_FormIsAIGenerated">[IsAIGenerated.ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_FormConfidence">[Confidence.ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_FormReason">[Reason]</InArgument>
+                          <OutArgument x:TypeArguments="x:Decimal" x:Key="out_FormPayoutAmount">[PayoutAmount]</OutArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_FormFileName_storage">[in_FileName]</InArgument>
+                        </upaf:CreateFormTask.FormData>
+                      </upaf:CreateFormTask>
+                      <upat:AssignTasks FailedTaskAssignments="{x:Null}" Group="{x:Null}" TaskUserAssignments="{x:Null}" TimeoutMs="{x:Null}" DisplayName="Assign Tasks to Myself" EnableMultipleAssignments="False" FolderPath="Operations" sap:VirtualizedContainerService.HintSize="452,386" sap2010:WorkflowViewState.IdRef="AssignTasks_2" MigrateV144="False" TaskAssignmentType="Assign" TaskId="[Convert.ToInt64(MyTaskObject.Id)]" UserNameOrEmail="leon@completerpabootcamp.com">
+                        <upat:AssignTasks.AssignmentCriteria>
+                          <upat:Criteria Description="SingleUserDescription" Id="SingleUser" Name="Activity_AssignTasks_AssignmentCriteria_SingleUserName" />
+                        </upat:AssignTasks.AssignmentCriteria>
+                      </upat:AssignTasks>
+                      <upaf:WaitForFormTaskAndResume StatusMessage="{x:Null}" TaskOutput="{x:Null}" TimeoutMs="{x:Null}" WaitItemDataObject="{x:Null}" DisplayName="Wait for Form Task and Resume" sap:VirtualizedContainerService.HintSize="452,180.66666666666666" sap2010:WorkflowViewState.IdRef="WaitForFormTaskAndResume_1" TaskAction="[TaskAction]" TaskInput="[MyTaskObject]" />
+                      <If Condition="[TaskAction=&quot;approve&quot;]" DisplayName="Check if Approve or Reject Button was Clicked" sap:VirtualizedContainerService.HintSize="452,850" sap2010:WorkflowViewState.IdRef="If_5">
+                        <If.Then>
+                          <Sequence DisplayName="TaskAction is approve" sap:VirtualizedContainerService.HintSize="450,367.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:LogMessage DisplayName="Log Approval" sap:VirtualizedContainerService.HintSize="416,180.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Claim approved. Pay out claim of $&quot;+PayoutAmount.ToString+&quot; to member &quot;+in_PolicyNumber.ToString]" />
+                            <ui:Comment sap:VirtualizedContainerService.HintSize="416,122.66666666666667" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// Add activities for paying out the claim and sending email to member with payment status" />
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="TaskAction is reject" sap:VirtualizedContainerService.HintSize="450,348" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:LogMessage DisplayName="Log Rejection" sap:VirtualizedContainerService.HintSize="416,180.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Claim Rejected&quot;]" />
+                            <ui:Comment sap:VirtualizedContainerService.HintSize="416,103.33333333333333" sap2010:WorkflowViewState.IdRef="Comment_2" Text="// Add activities for sending a rejection email to the member" />
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </If.Else>
+                </If>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="522,94.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="558,94.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>

@@ -1,0 +1,6 @@
+{
+  "Name": "Robot 7 Car Insurance Claims Processing",
+  "ProjectType": "Process",
+  "Description": "A insurance member completes a form for a car insurance claim, they submit and photo of the damage and an AI evaluates if the image is AI agenerated or not, this will also validate their policy number and assign tasks to a human assessor to value the damage.",
+  "MainFile": "Main.xaml"
+}

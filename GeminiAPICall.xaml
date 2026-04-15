@@ -1,0 +1,214 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Testing_API_call" this:Testing_API_call.in_FullFilePath="C:\Users\Leon Petrou\Documents\UiPath Project Portfolio\Robot 7 Car Insurance Claims Processing\Downloaded Photographs\caraccident_image3_e649ffda9e93443ca80d8216685bb019.jpg" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uwah="clr-namespace:UiPath.Web.Activities.Http;assembly=UiPath.Web.Activities" xmlns:uwahm="clr-namespace:UiPath.Web.Activities.Http.Models;assembly=UiPath.Web.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_Reason" Type="OutArgument(x:String)" />
+    <x:Property Name="out_Confidence" Type="OutArgument(x:Int32)" />
+    <x:Property Name="out_IsAIGenerated" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="in_FullFilePath" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>Testing_API_call_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.Web.Activities.Http.Models</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Net</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Web.Activities.Http</x:String>
+      <x:String>UiPath.Sdk.Activities</x:String>
+      <x:String>UiPath.Sdk.Activities.DependencyInjection.Contracts</x:String>
+      <x:String>UiPath.Sdk.Activities.DependencyInjection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>UiPath.Web.Activities.JSON.Models</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>System.Numerics</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Net.Primitives</AssemblyReference>
+      <AssemblyReference>System.Net.HttpListener</AssemblyReference>
+      <AssemblyReference>System.Net.WebProxy</AssemblyReference>
+      <AssemblyReference>System.Net.NameResolution</AssemblyReference>
+      <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
+      <AssemblyReference>System.Net.WebClient</AssemblyReference>
+      <AssemblyReference>System.Net.Requests</AssemblyReference>
+      <AssemblyReference>System.Net.ServicePoint</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Testing_API_call" sap:VirtualizedContainerService.HintSize="559.3333333333333,2439.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="uwahm:HttpResponseSummary" Name="GeminiResponse" />
+      <Variable x:TypeArguments="x:String" Name="TextJsonObject" />
+      <Variable x:TypeArguments="njl:JObject" Name="ActualJsonObject" />
+      <Variable x:TypeArguments="x:String" Name="Base64String" />
+      <Variable x:TypeArguments="s:Byte[]" Name="ArrayOfBytes" />
+      <Variable x:TypeArguments="njl:JObject" Name="StructuredResponse" />
+      <Variable x:TypeArguments="ss:SecureString" Name="secret_GeminiAPIKey" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign DisplayName="Assign File Path to Array of Bytes" sap:VirtualizedContainerService.HintSize="478.6666666666667,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="s:Byte[]">[ArrayOfBytes]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="s:Byte[]">[system.io.file.ReadAllBytes(in_FullFilePath)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign Array of Bytes to String" sap:VirtualizedContainerService.HintSize="478.6666666666667,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[Base64String]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Convert.ToBase64String(ArrayOfBytes)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:GetSecret TimeoutMS="{x:Null}" AssetName="GeminiAPIKey" DisplayName="Get Secret Gemini API Key" FolderPath="Operations" sap:VirtualizedContainerService.HintSize="478.6666666666667,187.33333333333334" sap2010:WorkflowViewState.IdRef="GetSecret_2" Secret="[secret_GeminiAPIKey]" />
+    <uwah:NetHttpRequest BasicAuthPassword="{x:Null}" BasicAuthSecurePassword="{x:Null}" BasicAuthUsername="{x:Null}" BinaryPayload="{x:Null}" ClientCertPassword="{x:Null}" ClientCertPath="{x:Null}" ClientCertSecurePassword="{x:Null}" CustomNegotiatedAuthCredentials="{x:Null}" FilePath="{x:Null}" OAuthToken="{x:Null}" OutputFileTargetFolder="{x:Null}" PathResource="{x:Null}" ProxyConfiguration="{x:Null}" ResourceFiles="{x:Null}" AuthenticationType="None" ContinueOnError="False" Cookies="[New System.Collections.Generic.Dictionary(Of String, String) From {}]" DisableSslVerification="False" DisplayName="HTTP Request Gemini API Call" EnableCookies="True" FileOverwrite="AutoRename" FollowRedirects="False" FormData="[New System.Collections.Generic.Dictionary(Of String, String) From {}]" FormDataParts="[New List (Of FormDataPart) From _&#xA;{&#xA;&#x9;New FileFormDataPart(),&#xA;&#x9;New BinaryFormDataPart(),&#xA;&#x9;New TextFormDataPart()&#xA;}]" Headers="[new System.Collections.Generic.Dictionary(Of System.String, System.String) From { { &quot;x-goog-api-key&quot;, new System.Net.NetworkCredential(string.Empty, secret_GeminiAPIKey).Password },{ &quot;Content-Type&quot;, &quot;application/json&quot; } }]" sap:VirtualizedContainerService.HintSize="478.6666666666667,439.3333333333333" sap2010:WorkflowViewState.IdRef="NetHttpRequest_1" InitialDelay="20000" LocalFiles="[New List (Of String) From { }]" MaxRedirects="3" MaxRetryAfterDelay="30000" Method="POST" Multiplier="2" OutputFileName="GeminiResponse.txt" Parameters="[New System.Collections.Generic.Dictionary(Of String, String) From {}]" PreferRetryAfterValue="True" RequestBodyType="Text" RequestUrl="[&quot;https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-preview:generateContent&quot;]" Result="[GeminiResponse]" RetryCount="3" RetryPolicyType="ExponentialBackoff" RetryStatusCodes="[New List (Of System.Net.HttpStatusCode) From _&#xA;{&#xA;&#x9;System.Net.HttpStatusCode.RequestTimeout,&#xA;&#x9;System.Net.HttpStatusCode.TooManyRequests,&#xA;&#x9;System.Net.HttpStatusCode.InternalServerError,&#xA;&#x9;System.Net.HttpStatusCode.BadGateway,&#xA;&#x9;System.Net.HttpStatusCode.ServiceUnavailable,&#xA;&#x9;System.Net.HttpStatusCode.GatewayTimeout&#xA;}]" SaveRawRequestResponse="True" SaveResponseAsFile="False" TextPayload="[&quot;{&#xA;  &quot;&quot;contents&quot;&quot;: [&#xA;    {&#xA;      &quot;&quot;parts&quot;&quot;: [&#xA;        {&#xA;          &quot;&quot;text&quot;&quot;: &quot;&quot;You are an image forensics expert working For an insurance company. You review photographs Of vehicle accidents submitted As part Of insurance claims.\n\nYour task: Examine the provided image And decide whether it Is:\n- A genuine, unedited photograph Of a real vehicle accident scene, Or\n- AI-generated Or AI-edited In any way (For example, AI used To create the entire scene, add Or remove damage, alter the vehicle, background, lighting, Or any other elements).\n\nIf you detect ANY AI involvement (generation Or editing), you MUST Set IsAIGenerated To True.\n\nReturn your answer Using ONLY the JSON schema specified In generationConfig With these fields:\n1) IsAIGenerated (Boolean) – True If the image Is likely AI-generated Or AI-edited In any way, False only If it appears To be a genuine, unedited photograph.\n2) Confidence (number between 0 And 100) – how confident you are In your IsAIGenerated answer.\n3) Reason (String) – a concise explanation For your decision, focusing On visual clues that suggest AI involvement Or authenticity, specifically In the context Of vehicle accident images For insurance claims.&quot;&quot;&#xA;        },&#xA;        {&#xA;          &quot;&quot;inlineData&quot;&quot;: {&#xA;            &quot;&quot;mimeType&quot;&quot;: &quot;&quot;image/jpeg&quot;&quot;,&#xA;            &quot;&quot;data&quot;&quot;: &quot;&quot;&quot;+Base64String+&quot;&quot;&quot;&#xA;          }&#xA;        }&#xA;      ]&#xA;    }&#xA;  ],&#xA;  &quot;&quot;generationConfig&quot;&quot;: {&#xA;    &quot;&quot;responseMimeType&quot;&quot;: &quot;&quot;application/json&quot;&quot;,&#xA;    &quot;&quot;responseJsonSchema&quot;&quot;: {&#xA;      &quot;&quot;type&quot;&quot;: &quot;&quot;object&quot;&quot;,&#xA;      &quot;&quot;properties&quot;&quot;: {&#xA;        &quot;&quot;IsAIGenerated&quot;&quot;: {&#xA;          &quot;&quot;type&quot;&quot;: &quot;&quot;boolean&quot;&quot;,&#xA;          &quot;&quot;description&quot;&quot;: &quot;&quot;True If the image Is likely AI-generated Or AI-edited In any way (including AI-added/removed damage Or altered scene elements). False only If it appears To be a genuine, unedited photograph Of a real vehicle accident.&quot;&quot;&#xA;        },&#xA;        &quot;&quot;Confidence&quot;&quot;: {&#xA;          &quot;&quot;type&quot;&quot;: &quot;&quot;number&quot;&quot;,&#xA;          &quot;&quot;minimum&quot;&quot;: 0,&#xA;          &quot;&quot;maximum&quot;&quot;: 100,&#xA;          &quot;&quot;description&quot;&quot;: &quot;&quot;How confident the model Is In its IsAIGenerated answer, From 0 To 100.&quot;&quot;&#xA;        },&#xA;        &quot;&quot;Reason&quot;&quot;: {&#xA;          &quot;&quot;type&quot;&quot;: &quot;&quot;string&quot;&quot;,&#xA;          &quot;&quot;description&quot;&quot;: &quot;&quot;A brief explanation describing why the model thinks the image Is Or Is Not AI-generated/AI-edited, With specific reference To vehicle accident insurance claim images.&quot;&quot;&#xA;        }&#xA;      },&#xA;      &quot;&quot;required&quot;&quot;: [&quot;&quot;IsAIGenerated&quot;&quot;, &quot;&quot;Confidence&quot;&quot;, &quot;&quot;Reason&quot;&quot;]&#xA;    }&#xA;  }&#xA;}&quot;]" TextPayloadContentType="[&quot;application/json&quot;]" TextPayloadEncoding="[&quot;UTF-8&quot;]" TlsProtocol="Automatic" UseJitter="True" UseOsNegotiatedAuthCredentials="True">
+      <uwah:NetHttpRequest.TimeoutInMiliseconds>
+        <InArgument x:TypeArguments="s:Nullable(x:Int32)">
+          <Literal x:TypeArguments="s:Nullable(x:Int32)" Value="900000" />
+        </InArgument>
+      </uwah:NetHttpRequest.TimeoutInMiliseconds>
+    </uwah:NetHttpRequest>
+    <Assign DisplayName="Assign Text Content Response" sap:VirtualizedContainerService.HintSize="478.6666666666667,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[TextJsonObject]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[GeminiResponse.TextContent]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" Settings="{x:Null}" DisplayName="Deserialize API Response JSON" sap:VirtualizedContainerService.HintSize="478.6666666666667,176" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[ActualJsonObject]" JsonString="[TextJsonObject]" />
+    <ui:LogMessage DisplayName="Log Deserialize API Response JSON" sap:VirtualizedContainerService.HintSize="478.6666666666667,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[ActualJsonObject(&quot;candidates&quot;)(0)(&quot;content&quot;)(&quot;parts&quot;)(0)(&quot;text&quot;)]" />
+    <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" Settings="{x:Null}" DisplayName="Deserialize Structured Result JSON" sap:VirtualizedContainerService.HintSize="478.6666666666667,176" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[StructuredResponse]" JsonString="[ActualJsonObject(&quot;candidates&quot;)(0)(&quot;content&quot;)(&quot;parts&quot;)(0)(&quot;text&quot;).ToString]" />
+    <ui:LogMessage DisplayName="Log Is AI Generated" sap:VirtualizedContainerService.HintSize="478.6666666666667,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Is AI Generated: &quot;+StructuredResponse(&quot;IsAIGenerated&quot;).ToString]" />
+    <ui:LogMessage DisplayName="Log Confidence " sap:VirtualizedContainerService.HintSize="478.6666666666667,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Confidence: &quot;+StructuredResponse(&quot;Confidence&quot;).ToString]" />
+    <ui:LogMessage DisplayName="Log Reason" sap:VirtualizedContainerService.HintSize="478.6666666666667,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Reason: &quot;+StructuredResponse(&quot;Reason&quot;).ToString]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign Out Arguments" sap:VirtualizedContainerService.HintSize="478.6666666666667,201.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Boolean">[out_IsAIGenerated]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Boolean">[Convert.ToBoolean(StructuredResponse("IsAIGenerated"))]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Int32">[out_Confidence]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(StructuredResponse("Confidence"))]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[out_Reason]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[StructuredResponse("Reason").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+  </Sequence>
+</Activity>
